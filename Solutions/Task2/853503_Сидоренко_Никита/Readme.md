@@ -9,5 +9,7 @@
 5 задние: Юниттесты с помощью unittest и pytest.
 
 Singleton : есть
+
 setup.py : есть
+
 from_json : нет
