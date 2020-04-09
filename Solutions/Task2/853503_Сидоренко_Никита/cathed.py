@@ -1,14 +1,11 @@
 def cached(func):
-    old_args = [None, None]
-
+    old_args = {}
     def wrapper(*args, **kwargs):
-        if old_args[0] == args:
-            return old_args[1]
+        if old_args.get(args):
+            return old_args[args]
         else:
-            old_args.clear()
-            old_args.append(args)
-            old_args.append(func(*args, **kwargs))
-            return old_args[1]
+            old_args.update({args : func(*args, **kwargs)})
+            return old_args[args]
 
     return wrapper
 
