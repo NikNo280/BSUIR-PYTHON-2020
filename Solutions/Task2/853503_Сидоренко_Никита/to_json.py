@@ -33,9 +33,9 @@ class JsonFormat:
         elif type(obj) == type(None):
             return 'null'
 
-    def _dict_to_string(self, Dict):
+    def _dict_to_string(self, dict):
         temp = []
-        for key, value in Dict.items():
+        for key, value in dict.items():
             if isinstance(value, (int, float, str, bool, type(None))):
                 temp.append(self._dict_format(key, self._normal_type_to_string(value)))
             elif isinstance(value, dict):
