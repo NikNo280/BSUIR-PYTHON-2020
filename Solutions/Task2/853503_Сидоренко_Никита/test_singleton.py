@@ -1,16 +1,17 @@
 import unittest
-from singletone import HeirSingleton, Singleton
+from singletone import  SimpleSingleton, SingletonWithValue
 
 class TestSingleton(unittest.TestCase):
-    def test_ref_Heir(self):
-        first_object = HeirSingleton()
-        second_object = HeirSingleton()
+    def test_ref(self):
+        first_object = SimpleSingleton()
+        second_object = SimpleSingleton()
         self.assertIs(first_object, second_object)
 
-    def test_ref_Singleton(self):
-        first_object = Singleton()
-        second_object = Singleton()
+    def test_ref_param(self):
+        first_object = SingletonWithValue(1)
+        second_object = SingletonWithValue(2)
         self.assertIs(first_object, second_object)
+        self.assertEqual(second_object.value, 1)
 
 
 if __name__ == '__main__':
